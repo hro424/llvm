@@ -1,0 +1,19 @@
+[common]
+subdirectories = AsmParser Disassembler InstPrinter MCTargetDesc TargetInfo
+
+[component_0]
+type = TargetGroup
+name = PJ32
+parent = Target
+has_asmparser = 1
+has_asmprinter = 1
+has_disassembler = 1
+has_jit = 1
+
+[component_1]
+type = Library
+name = PJ32CodeGen
+parent PJ32
+required_libraries = AsmPrinter CodeGen MC SelectionDAG PJ32AsmPrinter
+		     PJ32Desc PJ32Info Support Target
+add_to_library_groups = PJ32
